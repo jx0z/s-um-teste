@@ -1,12 +1,176 @@
 <!doctype html>
 <html lang="pt-BR">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <title>Home</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="home.css" />
+        <title>Home — Mota</title>
     </head>
+
     <body>
-        <h1>oi bem vindo</h1>
+        <main class="page">
+            <!-- HERO -->
+            <header class="card hero">
+                <img src="logo5.png" class="logo" alt="Logo" />
+                <div class="hero-text">
+                    <h1 class="name">Fala seus merda, eu sou o Mota 😎</h1>
+                    <p class="tag">
+                        Programo, faço minhas gambiarras e quebro o site 3x por
+                        dia.
+                    </p>
+                    <p class="tag dim">
+                        Mexendo com HTML, CSS e uns bagui suspeito.
+                    </p>
+
+                    <div class="actions">
+                        <a class="btn ghost" href="#quem">Quem sou eu</a>
+                        <button id="secretBtn" class="btn">Não clicar</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- INFO -->
+            <section id="quem" class="card info">
+                <h2 class="section-title">Quem sou eu?</h2>
+
+                <div class="grid">
+                    <ul class="list">
+                        <li><strong>Idade:</strong> — coloca aí</li>
+                        <li>
+                            <strong>O que curto:</strong> Customizar Linux,
+                            temas, jogar indies
+                        </li>
+                        <li>
+                            <strong>Gosto musical:</strong> Rock alternativo /
+                            Lo-fi / O que tocar
+                        </li>
+                        <li>
+                            <strong>Jogos favoritos:</strong> Roguelikes, indies
+                            leves, coop
+                        </li>
+                    </ul>
+
+                    <ul class="list">
+                        <li>
+                            <strong>Coisas que sou bom:</strong> Debug,
+                            improviso, consertar gambiarra
+                        </li>
+                        <li>
+                            <strong>Coisas que sou ruim:</strong> Acordar cedo,
+                            deixar código bonito
+                        </li>
+                        <li><strong>Contato:</strong> coloca email aí</li>
+                        <li><strong>Local:</strong> Brasil</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PROJETOS -->
+            <section class="card projects">
+                <h2 class="section-title">Meus projetos</h2>
+
+                <div class="projects-grid">
+                    <div class="proj">
+                        <h3>Projeto A</h3>
+                        <p class="muted">
+                            Layout feito de madrugada. link / repo
+                        </p>
+                    </div>
+                    <div class="proj">
+                        <h3>Projeto B</h3>
+                        <p class="muted">Script pra automatizar merda.</p>
+                    </div>
+                    <div class="proj">
+                        <h3>Projeto C</h3>
+                        <p class="muted">Coleção de configs e temas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXTRAS -->
+            <section class="card extras">
+                <h2 class="section-title">Coisas que curto</h2>
+
+                <div class="chips">
+                    <span class="chip">Linux</span>
+                    <span class="chip">CachyOS</span>
+                    <span class="chip">Jogos leves</span>
+                    <span class="chip">Custom UI</span>
+                    <span class="chip">Música</span>
+                </div>
+
+                <div class="player">
+                    <label class="muted">Vibe:</label>
+
+                    <audio id="player" controls autoplay muted preload="auto">
+                        <source
+                            src="nem todo mundo nasce herói - alec'.mp3"
+                            type="audio/mpeg"
+                        />
+                        Seu navegador não suporta áudio.
+                    </audio>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="foot">
+                <small
+                    >Feito na madrugada, com preguiça e talento duvidoso.</small
+                >
+            </footer>
+        </main>
+
+        <!-- EASTER -->
+        <div id="easter" class="easter hidden">
+            <div class="easter-card">
+                <h3>Tá curioso né?</h3>
+                <p>
+                    Você achou o botão secreto. Parabéns, ganhou um meme mental.
+                </p>
+                <button id="closeEaster" class="btn">Fechar</button>
+            </div>
+        </div>
+
+        <script>
+            // Easter egg
+            const secret = document.getElementById("secretBtn");
+            const easter = document.getElementById("easter");
+            const close = document.getElementById("closeEaster");
+
+            secret.addEventListener("click", () => {
+                easter.classList.remove("hidden");
+                secret.classList.add("bounce");
+                setTimeout(() => secret.classList.remove("bounce"), 600);
+            });
+
+            close.addEventListener("click", () => {
+                easter.classList.add("hidden");
+            });
+
+            // Scroll suave
+            document.querySelectorAll('a[href^="#"]').forEach((a) => {
+                a.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    document
+                        .querySelector(a.getAttribute("href"))
+                        .scrollIntoView({
+                            behavior: "smooth",
+                        });
+                });
+            });
+
+            // --- AUTOPLAY REAL OFICIAL ---
+            window.addEventListener("load", () => {
+                const audio = document.getElementById("player");
+                audio.muted = false;
+                audio.play().catch(() => {
+                    console.log("Navegador bloqueou autoplay, f...");
+                });
+            });
+        </script>
     </body>
 </html>

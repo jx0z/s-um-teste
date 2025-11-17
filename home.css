@@ -1,0 +1,261 @@
+/* minimalista dark — usa Josefin Sans (já linkado no HTML) */
+:root {
+    --bg: #0b0b0c;
+    --card: #111214;
+    --muted: #9ca3af;
+    --accent: #7a5cff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --shadow: rgba(0, 0, 0, 0.6);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+html,
+body {
+    min-height: 100%;
+    background: linear-gradient(180deg, #060606 0%, #0f0f0f 100%);
+    color: #eaeaea;
+}
+
+.page {
+    max-width: 980px;
+    margin: 36px auto;
+    padding: 20px 20px 60px; /* padding extra pra não grudar no fim */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+/* Card */
+.card {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.01)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    backdrop-filter: blur(6px);
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.logo {
+    width: 92px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(122, 92, 255, 0.12);
+}
+
+.hero-text {
+    flex: 1;
+}
+.name {
+    font-size: 20px;
+    margin-bottom: 6px;
+    letter-spacing: -0.4px;
+}
+.tag {
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+.dim {
+    opacity: 0.7;
+}
+
+/* actions */
+.actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background: var(--accent);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.16s,
+        box-shadow 0.16s;
+}
+
+.btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--muted);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(122, 92, 255, 0.12);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+.btn.bounce {
+    animation: bounce 0.6s;
+}
+
+/* Lists */
+.section-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.list {
+    list-style: none;
+    color: var(--muted);
+    min-width: 180px;
+}
+.list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+.list strong {
+    color: #fff;
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+.proj {
+    padding: 12px;
+    border-radius: 10px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.proj h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* Extras */
+.chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+.chip {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.player {
+    margin-top: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+audio {
+    width: 220px;
+    height: 32px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Footer */
+.foot {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    color: var(--muted);
+}
+
+/* Easter egg */
+.easter {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 50;
+}
+.easter.hidden {
+    display: none;
+}
+
+.easter-card {
+    background: var(--card);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+    max-width: 420px;
+    text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+    .hero {
+        flex-direction: row;
+        gap: 12px;
+    }
+    .logo {
+        width: 72px;
+    }
+    .page {
+        margin: 18px;
+        padding: 12px 12px 60px;
+    }
+    .card {
+        padding: 16px;
+    }
+}
+@media (max-width: 420px) {
+    .name {
+        font-size: 16px;
+    }
+    .actions {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/* Anim */
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(-3px);
+    }
+}

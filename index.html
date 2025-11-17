@@ -7,23 +7,34 @@
         <title>Login</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container animate-fade">
             <form id="loginForm">
-                <h2>Digite a data</h2>
+                <!-- LOGO -->
+                <img src="logo5.png" class="logo" alt="Logo do site" />
 
-                <input type="text" id="dataInput" placeholder="DD/MM/AAAA" />
+                <h2 class="title">Entrar</h2>
+                <p>Exemplo "01/01/2001"</p>
 
-                <button type="submit">Entrar</button>
+                <input
+                    type="text"
+                    id="dataInput"
+                    placeholder="Digite a data (DD/MM/AAAA)"
+                />
 
-                <p
-                    id="msg"
-                    style="color: red; font-weight: 600; display: none"
-                ></p>
+                <button type="submit" class="btn">acessar</button>
+
+                <p id="msg" class="msg"></p>
             </form>
         </div>
 
         <script>
-            const datasValidas = ["08/03/2008", "10/04/2010", "25/12/2005"];
+            // cada data aq abre uma pagina diferente nessa porra
+            const paginasPorData = {
+                "08/03/2008": "home.html",
+                "10/04/2010": "Rafa.html",
+                "25/12/2005": "pagina3.html",
+                "01/01/2001": "pagina4.html",
+            };
 
             document
                 .getElementById("loginForm")
@@ -35,11 +46,13 @@
                         .value.trim();
                     let msg = document.getElementById("msg");
 
-                    if (datasValidas.includes(dataDigitada)) {
-                        window.location.href = "home.html"; // a página pra onde tu quer ir
+                    // Se a data existir no objeto, redireciona
+                    if (paginasPorData[dataDigitada]) {
+                        window.location.href = paginasPorData[dataDigitada];
                     } else {
-                        msg.style.display = "block";
-                        msg.textContent = "Data errada, animal 😡";
+                        msg.textContent =
+                            "É tão burro(a) que errou até o aniversário 😡";
+                        msg.style.opacity = "1";
                     }
                 });
         </script>
