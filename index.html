@@ -4,16 +4,44 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
-        <title>Só um teste primeiro</title>
+        <title>Login</title>
     </head>
     <body>
         <div class="container">
-            <form>
-                <h1>Create Account</h1>
-                <span>entre com sua data de nascimento</span>
-                <input type="text" placeholder="Data" />
-                <button>Entrar</button>
+            <form id="loginForm">
+                <h2>Digite a data</h2>
+
+                <input type="text" id="dataInput" placeholder="DD/MM/AAAA" />
+
+                <button type="submit">Entrar</button>
+
+                <p
+                    id="msg"
+                    style="color: red; font-weight: 600; display: none"
+                ></p>
             </form>
         </div>
+
+        <script>
+            const datasValidas = ["08/03/2008", "10/04/2010", "25/12/2005"];
+
+            document
+                .getElementById("loginForm")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    let dataDigitada = document
+                        .getElementById("dataInput")
+                        .value.trim();
+                    let msg = document.getElementById("msg");
+
+                    if (datasValidas.includes(dataDigitada)) {
+                        window.location.href = "home.html"; // a página pra onde tu quer ir
+                    } else {
+                        msg.style.display = "block";
+                        msg.textContent = "Data errada, animal 😡";
+                    }
+                });
+        </script>
     </body>
 </html>
