@@ -17,7 +17,7 @@
             <header class="card hero">
                 <img src="logo5.png" class="logo" alt="Logo" />
                 <div class="hero-text">
-                    <h1 class="name">Fala seus merda, eu sou o Mota 😎</h1>
+                    <h1 class="name">Eu sou Miguel Mota</h1>
                     <p class="tag">
                         Programo, faço minhas gambiarras e quebro o site 3x por
                         dia.
@@ -39,31 +39,34 @@
 
                 <div class="grid">
                     <ul class="list">
-                        <li><strong>Idade:</strong> — coloca aí</li>
+                        <li><strong>Idade:</strong> 17</li>
                         <li>
-                            <strong>O que curto:</strong> Customizar Linux,
-                            temas, jogar indies
+                            <strong>O que curto:</strong> Mexer com Linux e
+                            Jogar Valorant
                         </li>
                         <li>
-                            <strong>Gosto musical:</strong> Rock alternativo /
-                            Lo-fi / O que tocar
+                            <strong>Gosto musical:</strong> Qualquer musica, Mas
+                            gosto bastante de "Nosso Lugar" do kevin
                         </li>
                         <li>
                             <strong>Jogos favoritos:</strong> Roguelikes, indies
-                            leves, coop
+                            leves, coop e Valorant
                         </li>
                     </ul>
 
                     <ul class="list">
                         <li>
-                            <strong>Coisas que sou bom:</strong> Debug,
-                            improviso, consertar gambiarra
+                            <strong>Coisas que sou bom:</strong> Pertubar os
+                            outros
                         </li>
                         <li>
                             <strong>Coisas que sou ruim:</strong> Acordar cedo,
                             deixar código bonito
                         </li>
-                        <li><strong>Contato:</strong> coloca email aí</li>
+                        <li>
+                            <strong>Contato:</strong> miguelbrmotta@gmail.com ou
+                            +5513991956321
+                        </li>
                         <li><strong>Local:</strong> Brasil</li>
                     </ul>
                 </div>
@@ -76,17 +79,15 @@
                 <div class="projects-grid">
                     <div class="proj">
                         <h3>Projeto A</h3>
-                        <p class="muted">
-                            Layout feito de madrugada. link / repo
-                        </p>
+                        <p class="muted">Não tenho um projeto ainda</p>
                     </div>
                     <div class="proj">
                         <h3>Projeto B</h3>
-                        <p class="muted">Script pra automatizar merda.</p>
+                        <p class="muted">Não tenho um projeto ainda</p>
                     </div>
                     <div class="proj">
                         <h3>Projeto C</h3>
-                        <p class="muted">Coleção de configs e temas.</p>
+                        <p class="muted">Não tenho um projeto ainda</p>
                     </div>
                 </div>
             </section>
@@ -97,7 +98,7 @@
 
                 <div class="chips">
                     <span class="chip">Linux</span>
-                    <span class="chip">CachyOS</span>
+                    <span class="chip">Valorant</span>
                     <span class="chip">Jogos leves</span>
                     <span class="chip">Custom UI</span>
                     <span class="chip">Música</span>
@@ -108,7 +109,7 @@
 
                     <audio id="player" controls autoplay muted preload="auto">
                         <source
-                            src="nem todo mundo nasce herói - alec'.mp3"
+                            src="NOSSO LUGAR-MC KEVIN, Thiago Castanho-LETRA.mp3"
                             type="audio/mpeg"
                         />
                         Seu navegador não suporta áudio.
@@ -118,9 +119,7 @@
 
             <!-- FOOTER -->
             <footer class="foot">
-                <small
-                    >Feito na madrugada, com preguiça e talento duvidoso.</small
-                >
+                <small>Fiz morrendo de preguiça, MOTA!</small>
             </footer>
         </main>
 
@@ -129,7 +128,8 @@
             <div class="easter-card">
                 <h3>Tá curioso né?</h3>
                 <p>
-                    Você achou o botão secreto. Parabéns, ganhou um meme mental.
+                    Você achou o botão secreto. Parabéns, e ganhou merda
+                    nenhuma.
                 </p>
                 <button id="closeEaster" class="btn">Fechar</button>
             </div>
@@ -170,6 +170,14 @@
                 audio.play().catch(() => {
                     console.log("Navegador bloqueou autoplay, f...");
                 });
+            });
+
+            // Deixa a música mais baixa quando a página carregar
+            window.addEventListener("DOMContentLoaded", () => {
+                const player = document.querySelector("audio");
+                if (player) {
+                    player.volume = 0.1; // de 0.0 até 1.0 — ajusta como quiser
+                }
             });
         </script>
     </body>
